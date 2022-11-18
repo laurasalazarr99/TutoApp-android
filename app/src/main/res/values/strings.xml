@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TutoApp</string>
+    <string name="LabelIniciarSesion">Iniciar sesión</string>
+    <string name="LabelCorreo">Correo</string>
+    <string name="LabelContraseña">Contraseña</string>
+    <string name="LabelCrearCuenta">Crear cuenta</string>
+    <string name="LabelIngresar">Ingresar</string>
+    <string name="ImgIsotipo">Isotipo</string>
+    <string name="ImgDocente">Docente</string>
+    <string name="ImgEstudiante">Estudiante</string>
+
+</resources>
