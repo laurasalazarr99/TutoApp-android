@@ -10,27 +10,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="513dp">
 
-        <ImageView
-            android:id="@+id/Isotipo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="110dp"
-            android:contentDescription="@string/ImgIsotipo"
-            app:srcCompat="@drawable/isotipo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:contentDescription="@string/LabelIniciarSesion"
-            android:text="Iniciar Sesión"
             android:fontFamily="@font/poppins_light"
+            android:text="Crea tu cuenta"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Información de la cuenta"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/correo_registro"
@@ -41,8 +53,9 @@
             android:layout_marginRight="50dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
+            android:hint="@string/LabelCorreo"
             android:inputType="textPersonName"
-            android:text="Correo"
+            android:text="Correo institucional"
             android:textColor="@color/colorInputFont"
             android:textSize="14sp" />
 
@@ -55,44 +68,26 @@
             android:layout_marginRight="50dp"
             android:ems="10"
             android:fontFamily="@font/poppins_light"
+            android:hint="@string/LabelContraseña"
             android:inputType="textPersonName"
-            android:text="Contraseña"
+            android:text="Crear contraseña"
             android:textColor="@color/colorInputFont"
             android:textSize="14sp" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btn_registro"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="160dp">
-
-            <Button
-                android:id="@+id/buttonIniciar"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:contentDescription="@string/LabelIngresar"
-                android:fontFamily="@font/quicksand_medium"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="Ingresar" />
-
-            <Button
-                android:id="@+id/btn_registro"
-                android:layout_width="match_parent"
-                android:layout_height="59dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="50dp"
-                android:contentDescription="@string/LabelCrearCuenta"
-                android:fontFamily="@font/quicksand_medium"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="CREAR CUENTA" />
-        </LinearLayout>
+            android:layout_height="59dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="50dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:contentDescription="@string/LabelCrearCuenta"
+            android:fontFamily="@font/quicksand_medium"
+            android:hint="Registro_cuenta"
+            android:text="CREAR CUENTA"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
