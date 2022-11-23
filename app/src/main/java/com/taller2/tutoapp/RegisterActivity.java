@@ -11,24 +11,32 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.util.HashMap;
 import java.util.Map;
 
 
+
 public class RegisterActivity extends AppCompatActivity {
 
-    Button btn_register;
-    EditText email, password;
-    FirebaseFirestore mFirestore;
+    private EditText email_register;
+    private EditText password_register;
+    private Button btn_register;
+
+
+    //VARIABLES DATOS
+
+    private String email = "";
+    private String password = "";
+
     FirebaseAuth mAuth;
+    DatabaseReference Data_base;
 
 
     @Override
@@ -36,61 +44,66 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        Data_base = FirebaseDatabase.getInstance().getReference();
 
-        email = findViewById(R.id.correo_registro);
-        password = findViewById(R.id.contrasena_registro);
-        btn_register = findViewById(R.id.btn_registro);
+        email_register = (EditText) findViewById(R.id.correo_registro);
+        password_register = (EditText) findViewById(R.id.contrasena_registro);
+        btn_register = (Button) findViewById(R.id.btn_registro);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String emailUser = email.getText().toString().trim();
-                String passUser = password.getText().toString().trim();
+            public void onClick(View view) {
+                email = email_register.getText().toString();
+                password = password_register.getText().toString();
 
-                if(emailUser.isEmpty() && passUser.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Complete los datos", Toast.LENGTH_SHORT).show();
+                if(!email.isEmpty() && !password.isEmpty()) {
 
-                }else{
-                    registerUser(emailUser,passUser);
-                    
+                    if (password.length() >=6) {
+                    registerUser();
+                    }
+                    else {
+                        Toast.makeText( RegisterActivity.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
+                else {
+                    Toast.makeText( RegisterActivity.this, "Debe completar los campos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    private void registerUser(String emailUser, String passUser) {
-        mAuth.createUserWithEmailAndPassword(emailUser,passUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                String id =mAuth.getCurrentUser() .getUid();
-                Map<String, Object> map = new HashMap<>();
-                map.put( "id", id);
-                map.put( "email", emailUser);
-                map.put("password", passUser);
+    private void registerUser() {
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener((new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
 
-                mFirestore.collection("user").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        finish();
-                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                        Toast.makeText( RegisterActivity.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(RegisterActivity.this, "Error al guardar", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            };
+                        Map<String, Object> map = new HashMap<>();
+                        map.put( "email", email);
+                        map.put( "password", password);
 
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegisterActivity.this, "Error al registrar", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+                        String id = mAuth.getCurrentUser().getUid();
+
+                        Data_base.child("Docentes").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task2) {
+                                if (task2.isSuccessful()) {
+                                    startActivity(new Intent(RegisterActivity.this,InicioActivity.class));
+                                    finish();
+                                }
+                                else {
+                                    Toast.makeText( RegisterActivity.this, "Error al guardar los datos", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
+                    }
+                    else {
+                        Toast.makeText( RegisterActivity.this, "Fallo al registrar este usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }));
+
+        }
 }

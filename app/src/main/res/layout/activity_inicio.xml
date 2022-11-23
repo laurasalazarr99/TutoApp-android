@@ -19,8 +19,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="325dp"
-        android:layout_height="146dp"
+        android:layout_width="318dp"
+        android:layout_height="162dp"
         android:background="@drawable/style_bordes_caja"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,12 +48,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Humanidades II"
+                android:textColor="@color/colorInputFont"
                 android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorInputFont"
                 android:fontFamily="@font/quicksand_regular"
                 android:text="Grupo - 01" />
 
