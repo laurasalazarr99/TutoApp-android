@@ -7,15 +7,37 @@
     android:background="@color/colorFont"
     tools:context=".InicioActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="131dp"
-        android:layout_height="66dp"
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="123dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/button_materia_t1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/recurso_10" />
+        app:layout_constraintVertical_bias="0.475"
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="104dp"
+            android:layout_height="49dp"
+            app:srcCompat="@drawable/recurso_10"
+            android:layout_marginLeft="70px"/>
+
+        <TextView
+            android:id="@+id/cerrar_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="right"
+            android:text="Cerrar Sesión"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:layout_marginRight="70px"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/button_materia_t1"

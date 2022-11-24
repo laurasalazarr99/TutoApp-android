@@ -47,9 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         Data_base = FirebaseDatabase.getInstance().getReference();
 
-        email_register = (EditText) findViewById(R.id.correo_registro);
-        password_register = (EditText) findViewById(R.id.contrasena_registro);
-        btn_register = (Button) findViewById(R.id.btn_registro);
+        email_register = (EditText) findViewById(R.id.correo_login);
+        password_register = (EditText) findViewById(R.id.contrasena_login);
+        btn_register = (Button) findViewById(R.id.Button_crearcuenta);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,4 +106,13 @@ public class RegisterActivity extends AppCompatActivity {
             }));
 
         }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser() != null);
+            startActivity(new Intent(RegisterActivity.this, InicioActivity.class));
+            finish();
+    }
 }

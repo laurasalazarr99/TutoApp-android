@@ -45,7 +45,7 @@
             android:textColor="@color/black" />
 
         <EditText
-            android:id="@+id/correo_registro"
+            android:id="@+id/correo_login"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="50dp"
@@ -60,7 +60,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/contrasena_registro"
+            android:id="@+id/contrasena_login"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="50dp"
@@ -75,7 +75,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_registro"
+            android:id="@+id/Button_crearcuenta"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_marginLeft="50dp"
