@@ -129,19 +129,20 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/Button_Audio"
+        android:id="@+id/Button_Grabar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="116dp"
         android:layout_weight="1"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/Button_Audio"
+        android:contentDescription="@string/Button_Grabar"
+        android:onClick="Grabar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_mensaje_t2"
-        app:layout_constraintVertical_bias="0.778"
-        app:srcCompat="@drawable/audio" />
+        app:layout_constraintTop_toTopOf="@+id/button_caja_mensaje_t1"
+        app:layout_constraintVertical_bias="0.986"
+        app:srcCompat="@drawable/audio_inicio" />
 
     <TextView
         android:id="@+id/textView6"
@@ -155,7 +156,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Button_Audio"
+        app:layout_constraintTop_toBottomOf="@+id/Button_Grabar"
         app:layout_constraintVertical_bias="0.112" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="61dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:onClick="Reproducir"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/Button_Grabar"
+        app:srcCompat="@drawable/play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

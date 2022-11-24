@@ -9,7 +9,8 @@
     <string name="ImgDocente">Docente</string>
     <string name="ImgEstudiante">Estudiante</string>
 
-    <string name="Button_Audio">Button Audio</string>
+    <string name="Button_Grabar">ButtonGrabar</string>
+    <string name="Button_Reproducir">ButtonReproducir</string>
 
 
 </resources>
