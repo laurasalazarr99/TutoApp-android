@@ -7,6 +7,10 @@
     <color name="colorContainer">#ECEFF7</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="teal200">#FFFFFFFF</color>
+    <color name="gray200">#E4E6F0</color>
+    <color name="gray300">#BEC2D5</color>
+    <color name="gray600">#A0A4B6</color>
+    <color name="gray800">#7E84A3</color>
+
 
 </resources>

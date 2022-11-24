@@ -11,14 +11,14 @@
         android:id="@+id/imageView2"
         android:layout_width="131dp"
         android:layout_height="66dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/button_materia_t1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/recurso_10" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/button_materia_t1"
         android:layout_width="318dp"
         android:layout_height="162dp"
         android:background="@drawable/style_bordes_caja"
